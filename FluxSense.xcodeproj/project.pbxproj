@@ -1,0 +1,699 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6551A8DC2FAA12C400FCCD93 /* FluxSense Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6551A8DB2FAA12C400FCCD93 /* FluxSense Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6551A8DD2FAA12C400FCCD93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6551A8CF2FAA12C300FCCD93 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6551A8DA2FAA12C400FCCD93;
+			remoteInfo = "FluxSense Watch App";
+		};
+		6551A8EB2FAA12C400FCCD93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6551A8CF2FAA12C300FCCD93 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6551A8DA2FAA12C400FCCD93;
+			remoteInfo = "FluxSense Watch App";
+		};
+		6551A8F52FAA12C400FCCD93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6551A8CF2FAA12C300FCCD93 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6551A8DA2FAA12C400FCCD93;
+			remoteInfo = "FluxSense Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6551A9012FAA12C400FCCD93 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6551A8DC2FAA12C400FCCD93 /* FluxSense Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6551A8D52FAA12C400FCCD93 /* FluxSense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluxSense.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6551A8DB2FAA12C400FCCD93 /* FluxSense Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FluxSense Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6551A8EA2FAA12C400FCCD93 /* FluxSense Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FluxSense Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6551A8F42FAA12C400FCCD93 /* FluxSense Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FluxSense Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6551A8DF2FAA12C400FCCD93 /* FluxSense Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "FluxSense Watch App";
+			sourceTree = "<group>";
+		};
+		6551A8ED2FAA12C400FCCD93 /* FluxSense Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "FluxSense Watch AppTests";
+			sourceTree = "<group>";
+		};
+		6551A8F72FAA12C400FCCD93 /* FluxSense Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "FluxSense Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6551A8D82FAA12C400FCCD93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6551A8E72FAA12C400FCCD93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6551A8F12FAA12C400FCCD93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6551A8CE2FAA12C300FCCD93 = {
+			isa = PBXGroup;
+			children = (
+				6551A8DF2FAA12C400FCCD93 /* FluxSense Watch App */,
+				6551A8ED2FAA12C400FCCD93 /* FluxSense Watch AppTests */,
+				6551A8F72FAA12C400FCCD93 /* FluxSense Watch AppUITests */,
+				6551A8D62FAA12C400FCCD93 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6551A8D62FAA12C400FCCD93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6551A8D52FAA12C400FCCD93 /* FluxSense.app */,
+				6551A8DB2FAA12C400FCCD93 /* FluxSense Watch App.app */,
+				6551A8EA2FAA12C400FCCD93 /* FluxSense Watch AppTests.xctest */,
+				6551A8F42FAA12C400FCCD93 /* FluxSense Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6551A8D42FAA12C400FCCD93 /* FluxSense */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6551A9022FAA12C400FCCD93 /* Build configuration list for PBXNativeTarget "FluxSense" */;
+			buildPhases = (
+				6551A8D32FAA12C400FCCD93 /* Resources */,
+				6551A9012FAA12C400FCCD93 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6551A8DE2FAA12C400FCCD93 /* PBXTargetDependency */,
+			);
+			name = FluxSense;
+			packageProductDependencies = (
+			);
+			productName = FluxSense;
+			productReference = 6551A8D52FAA12C400FCCD93 /* FluxSense.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		6551A8DA2FAA12C400FCCD93 /* FluxSense Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6551A8FE2FAA12C400FCCD93 /* Build configuration list for PBXNativeTarget "FluxSense Watch App" */;
+			buildPhases = (
+				6551A8D72FAA12C400FCCD93 /* Sources */,
+				6551A8D82FAA12C400FCCD93 /* Frameworks */,
+				6551A8D92FAA12C400FCCD93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6551A8DF2FAA12C400FCCD93 /* FluxSense Watch App */,
+			);
+			name = "FluxSense Watch App";
+			packageProductDependencies = (
+			);
+			productName = "FluxSense Watch App";
+			productReference = 6551A8DB2FAA12C400FCCD93 /* FluxSense Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6551A8E92FAA12C400FCCD93 /* FluxSense Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6551A9052FAA12C400FCCD93 /* Build configuration list for PBXNativeTarget "FluxSense Watch AppTests" */;
+			buildPhases = (
+				6551A8E62FAA12C400FCCD93 /* Sources */,
+				6551A8E72FAA12C400FCCD93 /* Frameworks */,
+				6551A8E82FAA12C400FCCD93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6551A8EC2FAA12C400FCCD93 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6551A8ED2FAA12C400FCCD93 /* FluxSense Watch AppTests */,
+			);
+			name = "FluxSense Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "FluxSense Watch AppTests";
+			productReference = 6551A8EA2FAA12C400FCCD93 /* FluxSense Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6551A8F32FAA12C400FCCD93 /* FluxSense Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6551A9082FAA12C400FCCD93 /* Build configuration list for PBXNativeTarget "FluxSense Watch AppUITests" */;
+			buildPhases = (
+				6551A8F02FAA12C400FCCD93 /* Sources */,
+				6551A8F12FAA12C400FCCD93 /* Frameworks */,
+				6551A8F22FAA12C400FCCD93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6551A8F62FAA12C400FCCD93 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6551A8F72FAA12C400FCCD93 /* FluxSense Watch AppUITests */,
+			);
+			name = "FluxSense Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "FluxSense Watch AppUITests";
+			productReference = 6551A8F42FAA12C400FCCD93 /* FluxSense Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6551A8CF2FAA12C300FCCD93 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					6551A8D42FAA12C400FCCD93 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					6551A8DA2FAA12C400FCCD93 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					6551A8E92FAA12C400FCCD93 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 6551A8DA2FAA12C400FCCD93;
+					};
+					6551A8F32FAA12C400FCCD93 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 6551A8DA2FAA12C400FCCD93;
+					};
+				};
+			};
+			buildConfigurationList = 6551A8D22FAA12C300FCCD93 /* Build configuration list for PBXProject "FluxSense" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6551A8CE2FAA12C300FCCD93;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6551A8D62FAA12C400FCCD93 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6551A8D42FAA12C400FCCD93 /* FluxSense */,
+				6551A8DA2FAA12C400FCCD93 /* FluxSense Watch App */,
+				6551A8E92FAA12C400FCCD93 /* FluxSense Watch AppTests */,
+				6551A8F32FAA12C400FCCD93 /* FluxSense Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6551A8D32FAA12C400FCCD93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6551A8D92FAA12C400FCCD93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6551A8E82FAA12C400FCCD93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6551A8F22FAA12C400FCCD93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6551A8D72FAA12C400FCCD93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6551A8E62FAA12C400FCCD93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6551A8F02FAA12C400FCCD93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6551A8DE2FAA12C400FCCD93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6551A8DA2FAA12C400FCCD93 /* FluxSense Watch App */;
+			targetProxy = 6551A8DD2FAA12C400FCCD93 /* PBXContainerItemProxy */;
+		};
+		6551A8EC2FAA12C400FCCD93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6551A8DA2FAA12C400FCCD93 /* FluxSense Watch App */;
+			targetProxy = 6551A8EB2FAA12C400FCCD93 /* PBXContainerItemProxy */;
+		};
+		6551A8F62FAA12C400FCCD93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6551A8DA2FAA12C400FCCD93 /* FluxSense Watch App */;
+			targetProxy = 6551A8F52FAA12C400FCCD93 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6551A8FC2FAA12C400FCCD93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6551A8FD2FAA12C400FCCD93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		6551A8FF2FAA12C400FCCD93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FluxSense-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
+				INFOPLIST_KEY_NSMotionUsageDescription = "FluxSense uses the magnetometer to detect the proximity and polarity of magnetic fields.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FluxSense.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		6551A9002FAA12C400FCCD93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FluxSense-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
+				INFOPLIST_KEY_NSMotionUsageDescription = "FluxSense uses the magnetometer to detect the proximity and polarity of magnetic fields.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FluxSense.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		6551A9032FAA12C400FCCD93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FluxSense;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6551A9042FAA12C400FCCD93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FluxSense;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6551A9062FAA12C400FCCD93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.FluxSense-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FluxSense Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FluxSense Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Debug;
+		};
+		6551A9072FAA12C400FCCD93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.FluxSense-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FluxSense Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FluxSense Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Release;
+		};
+		6551A9092FAA12C400FCCD93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.FluxSense-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "FluxSense Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Debug;
+		};
+		6551A90A2FAA12C400FCCD93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7CW9V4LF9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.FluxSense-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "FluxSense Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6551A8D22FAA12C300FCCD93 /* Build configuration list for PBXProject "FluxSense" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6551A8FC2FAA12C400FCCD93 /* Debug */,
+				6551A8FD2FAA12C400FCCD93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6551A8FE2FAA12C400FCCD93 /* Build configuration list for PBXNativeTarget "FluxSense Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6551A8FF2FAA12C400FCCD93 /* Debug */,
+				6551A9002FAA12C400FCCD93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6551A9022FAA12C400FCCD93 /* Build configuration list for PBXNativeTarget "FluxSense" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6551A9032FAA12C400FCCD93 /* Debug */,
+				6551A9042FAA12C400FCCD93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6551A9052FAA12C400FCCD93 /* Build configuration list for PBXNativeTarget "FluxSense Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6551A9062FAA12C400FCCD93 /* Debug */,
+				6551A9072FAA12C400FCCD93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6551A9082FAA12C400FCCD93 /* Build configuration list for PBXNativeTarget "FluxSense Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6551A9092FAA12C400FCCD93 /* Debug */,
+				6551A90A2FAA12C400FCCD93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6551A8CF2FAA12C300FCCD93 /* Project object */;
+}
