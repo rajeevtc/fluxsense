@@ -8,11 +8,11 @@ final class MagnetometerService: ObservableObject {
     private let motionManager = CMMotionManager()
     private let useCase = MagnetometerUseCase()
     private let updateInterval: TimeInterval = 1.0 / 30.0
+    private var latestRawField: CMMagneticField?
 
     @Published private(set) var currentReading = MagneticReading(strength: 0, polarity: .neutral, rawMagnitude: 0)
     @Published private(set) var isRunning = false
     @Published private(set) var isCalibrated = false
-    @Published private(set) var calibrationAccuracy: CMMagneticFieldCalibrationAccuracy = .uncalibrated
 
     var baselineMagnitude: Double {
         get { useCase.baselineMagnitude }
@@ -31,40 +31,57 @@ final class MagnetometerService: ObservableObject {
     }
 
     var isAvailable: Bool {
-        motionManager.isDeviceMotionAvailable
+        motionManager.isMagnetometerAvailable || motionManager.isDeviceMotionAvailable
     }
 
     func start() {
-        guard motionManager.isDeviceMotionAvailable, !isRunning else { return }
+        guard !isRunning else { return }
+
+        if motionManager.isMagnetometerAvailable {
+            motionManager.magnetometerUpdateInterval = updateInterval
+            motionManager.startMagnetometerUpdates(to: .main) { [weak self] data, error in
+                guard let self, let data, error == nil else { return }
+                self.consume(field: data.magneticField)
+            }
+            isRunning = true
+            return
+        }
+
+        guard motionManager.isDeviceMotionAvailable else { return }
 
         motionManager.deviceMotionUpdateInterval = updateInterval
-        motionManager.startDeviceMotionUpdates(
-            using: .xMagneticNorthZVertical,
-            to: .main
-        ) { [weak self] motion, error in
+        motionManager.startDeviceMotionUpdates(using: .xMagneticNorthZVertical, to: .main) { [weak self] motion, error in
             guard let self, let motion, error == nil else { return }
-
-            let field = motion.magneticField
-            self.calibrationAccuracy = field.accuracy
-            self.currentReading = self.useCase.process(
-                rawX: field.field.x,
-                rawY: field.field.y,
-                rawZ: field.field.z
-            )
+            self.consume(field: motion.magneticField.field)
         }
         isRunning = true
     }
 
     func stop() {
+        motionManager.stopMagnetometerUpdates()
         motionManager.stopDeviceMotionUpdates()
         isRunning = false
     }
 
     /// Captures the current ambient magnetic field as the zero-offset baseline.
     func calibrate() {
-        guard let motion = motionManager.deviceMotion else { return }
-        let field = motion.magneticField.field
+        guard let field = latestRawField else { return }
         useCase.calibrate(rawX: field.x, rawY: field.y, rawZ: field.z)
         isCalibrated = true
+    }
+
+    private func consume(field: CMMagneticField) {
+        latestRawField = field
+
+        if !isCalibrated {
+            useCase.calibrate(rawX: field.x, rawY: field.y, rawZ: field.z)
+            isCalibrated = true
+        }
+
+        currentReading = useCase.process(
+            rawX: field.x,
+            rawY: field.y,
+            rawZ: field.z
+        )
     }
 }
