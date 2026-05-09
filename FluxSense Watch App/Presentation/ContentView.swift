@@ -23,12 +23,10 @@ struct ContentView: View {
         .onAppear {
             gain = magnetometer.gain
             runtimeSession.onSessionEnded = {
-                magnetometer.stop()
-                haptics.stop()
                 stealthManager.exitStealthMode()
+                updateHaptics()
             }
 
-            runtimeSession.startSessionIfNeeded()
             magnetometer.start()
         }
         .onDisappear {
@@ -81,7 +79,7 @@ struct ContentView: View {
 
             Text(runtimeLabel)
                 .font(.caption2)
-                .foregroundStyle(runtimeSession.isRunning ? .green : .secondary)
+                .foregroundStyle(.secondary)
         }
         .padding(.top, 4)
     }
@@ -138,26 +136,31 @@ struct ContentView: View {
             set: { isEnabled in
                 if isEnabled {
                     stealthManager.enterStealthMode()
+                    runtimeSession.startSessionIfNeeded()
                     WKInterfaceDevice.current().play(.success)
                 } else {
                     stealthManager.exitStealthMode()
+                    runtimeSession.invalidateSession()
+                    updateHaptics()
                 }
             }
         )
     }
 
     private var runtimeLabel: String {
-        guard runtimeSession.isRunning else { return "Session: Off" }
+        guard stealthManager.isStealthModeEnabled, runtimeSession.isRunning else {
+            return "Stealth: Off"
+        }
         let minutes = runtimeSession.remainingSeconds / 60
         let seconds = runtimeSession.remainingSeconds % 60
-        return String(format: "Session: %02d:%02d", minutes, seconds)
+        return String(format: "Stealth: %02d:%02d", minutes, seconds)
     }
 
     private func updateHaptics() {
         guard !stealthManager.isStealthModeEnabled else { return }
 
         let reading = magnetometer.currentReading
-        if reading.polarity == .neutral {
+        if reading.polarity == .neutral || reading.strength < 0.08 {
             haptics.stop()
             return
         }
