@@ -1,6 +1,73 @@
 import SwiftUI
 import WatchKit
 
+// MARK: - Circular Progress View
+
+struct CircularProgressView: View {
+    let microtesla: Double
+    let polarity: Polarity
+    var minMicrotesla: Double = 0
+    var maxMicrotesla: Double = 100
+
+    private var progress: Double {
+        MagneticReading.normalizedProgress(
+            microtesla: microtesla,
+            minMicrotesla: minMicrotesla,
+            maxMicrotesla: maxMicrotesla
+        )
+    }
+
+    private var polarityShortLabel: String {
+        switch polarity {
+        case .north: "N"
+        case .south: "S"
+        case .neutral: "-"
+        }
+    }
+
+    private var polarityColor: Color {
+        switch polarity {
+        case .north: .red
+        case .south: .blue
+        case .neutral: .gray
+        }
+    }
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(Color.gray.opacity(0.25), lineWidth: 10)
+
+            Circle()
+                .trim(from: 0, to: CGFloat(progress))
+                .stroke(
+                    AngularGradient(
+                        gradient: Gradient(colors: [.blue, .cyan, .green]),
+                        center: .center
+                    ),
+                    style: StrokeStyle(lineWidth: 10, lineCap: .round)
+                )
+                .rotationEffect(.degrees(-90))
+                .animation(.easeInOut(duration: 0.15), value: progress)
+
+            VStack(spacing: 2) {
+                Text(MagneticReading.microteslaLabel(microtesla))
+                    .font(.system(size: 22, weight: .heavy, design: .rounded))
+                    .monospacedDigit()
+                    .minimumScaleFactor(0.7)
+                    .lineLimit(1)
+                Text(polarityShortLabel)
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(polarityColor)
+            }
+            .padding(.horizontal, 20)
+        }
+        .accessibilityLabel("Magnetic intensity \(Int(microtesla.rounded())) microteslas")
+    }
+}
+
+// MARK: - Content View
+
 struct ContentView: View {
     @StateObject private var magnetometer = MagnetometerService()
     @StateObject private var runtimeSession = RuntimeSessionManager()
@@ -47,35 +114,11 @@ struct ContentView: View {
 
     private var sensingScreen: some View {
         VStack(spacing: 8) {
-            ZStack {
-                Circle()
-                    .stroke(Color.gray.opacity(0.25), lineWidth: 10)
-
-                Circle()
-                    .trim(from: 0, to: CGFloat(magnetometer.currentReading.strength))
-                    .stroke(
-                        AngularGradient(
-                            gradient: Gradient(colors: [.blue, .cyan, .green]),
-                            center: .center
-                        ),
-                        style: StrokeStyle(lineWidth: 10, lineCap: .round)
-                    )
-                    .rotationEffect(.degrees(-90))
-
-                VStack(spacing: 2) {
-                    Text("\(magnetometer.currentReading.strengthPercentage)%")
-                        .font(.system(size: 30, weight: .heavy, design: .rounded))
-                        .monospacedDigit()
-                    Text(polarityShortLabel)
-                        .font(.caption.weight(.bold))
-                        .foregroundStyle(polarityColor)
-                }
-            }
+            CircularProgressView(
+                microtesla: magnetometer.currentReading.rawMagnitude,
+                polarity: magnetometer.currentReading.polarity
+            )
             .frame(width: 150, height: 150)
-
-            Text(String(format: "%.1f µT", magnetometer.currentReading.rawMagnitude))
-                .font(.caption2)
-                .foregroundStyle(.secondary)
 
             Text(runtimeLabel)
                 .font(.caption2)
@@ -166,24 +209,31 @@ struct ContentView: View {
         }
         haptics.play(for: reading)
     }
-
-    private var polarityShortLabel: String {
-        switch magnetometer.currentReading.polarity {
-        case .north: "N"
-        case .south: "S"
-        case .neutral: "-"
-        }
-    }
-
-    private var polarityColor: Color {
-        switch magnetometer.currentReading.polarity {
-        case .north: .red
-        case .south: .blue
-        case .neutral: .gray
-        }
-    }
 }
 
-#Preview {
+// MARK: - Previews
+
+#Preview("Content View") {
     ContentView()
+}
+
+#Preview("Circular Progress") {
+    VStack(spacing: 16) {
+        HStack(spacing: 12) {
+            CircularProgressView(microtesla: 0, polarity: .neutral)
+                .frame(width: 120, height: 120)
+            CircularProgressView(microtesla: 25, polarity: .south)
+                .frame(width: 120, height: 120)
+            CircularProgressView(microtesla: 50, polarity: .north)
+                .frame(width: 120, height: 120)
+        }
+        HStack(spacing: 12) {
+            CircularProgressView(microtesla: 100, polarity: .north)
+                .frame(width: 120, height: 120)
+            // 150 µT clamps visually to full ring
+            CircularProgressView(microtesla: 150, polarity: .south)
+                .frame(width: 120, height: 120)
+        }
+    }
+    .padding()
 }

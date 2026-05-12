@@ -10,6 +10,9 @@ final class MagnetometerService: ObservableObject {
     private let updateInterval: TimeInterval = 1.0 / 30.0
     private var latestRawField: CMMagneticField?
 
+    private var magnitudeBuffer: [Double] = []
+    private let smoothingWindowSize = 5
+
     @Published private(set) var currentReading = MagneticReading(strength: 0, polarity: .neutral, rawMagnitude: 0)
     @Published private(set) var isRunning = false
     @Published private(set) var isCalibrated = false
@@ -67,6 +70,7 @@ final class MagnetometerService: ObservableObject {
     func calibrate() {
         guard let field = latestRawField else { return }
         useCase.calibrate(rawX: field.x, rawY: field.y, rawZ: field.z)
+        magnitudeBuffer.removeAll()
         isCalibrated = true
     }
 
@@ -78,10 +82,23 @@ final class MagnetometerService: ObservableObject {
             isCalibrated = true
         }
 
-        currentReading = useCase.process(
+        let reading = useCase.process(
             rawX: field.x,
             rawY: field.y,
             rawZ: field.z
+        )
+
+        magnitudeBuffer.append(reading.rawMagnitude)
+        if magnitudeBuffer.count > smoothingWindowSize {
+            magnitudeBuffer.removeFirst()
+        }
+        let smoothed = magnitudeBuffer.reduce(0.0, +) / Double(magnitudeBuffer.count)
+        let smoothedStrength = min(max(smoothed / max(useCase.baselineMagnitude, 0.0001), 0), 1)
+
+        currentReading = MagneticReading(
+            strength: smoothedStrength,
+            polarity: reading.polarity,
+            rawMagnitude: smoothed
         )
     }
 }
