@@ -1,7 +1,7 @@
 import Foundation
 
 /// Handles calibration offsets, gain multipliers, and normalization of raw magnetometer data.
-final class MagnetometerUseCase {
+struct MagnetometerUseCase {
     /// Per-axis calibration offsets (microteslas)
     var offsetX: Double = 0.0
     var offsetY: Double = 0.0
@@ -19,8 +19,10 @@ final class MagnetometerUseCase {
     /// Offsets only drift-adapt when in this ambient zone, so they never chase a magnet's field.
     private let ambientThreshold: Double = 3.0
 
+    nonisolated init() { }
+
     /// Captures the current ambient field as the calibration offset
-    func calibrate(rawX: Double, rawY: Double, rawZ: Double) {
+    nonisolated mutating func calibrate(rawX: Double, rawY: Double, rawZ: Double) {
         offsetX = rawX
         offsetY = rawY
         offsetZ = rawZ
@@ -28,7 +30,7 @@ final class MagnetometerUseCase {
 
     /// Applies the formula: Output = (RawValue - Offset) * Gain
     /// Then normalizes to 0–1 based on the user-defined baseline.
-    func process(rawX: Double, rawY: Double, rawZ: Double) -> MagneticReading {
+    nonisolated mutating func process(rawX: Double, rawY: Double, rawZ: Double) -> MagneticReading {
         let safeBaseline = max(baselineMagnitude, 0.0001)
 
         // Compute corrected values with the current (unadapted) offsets first.

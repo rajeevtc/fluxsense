@@ -14,7 +14,7 @@ struct StarterView: View {
                 .multilineTextAlignment(.center)
 
             NavigationLink {
-                ContentView()
+                MagnetReaderView()
             } label: {
                 Text("Start")
                     .font(.headline.weight(.semibold))

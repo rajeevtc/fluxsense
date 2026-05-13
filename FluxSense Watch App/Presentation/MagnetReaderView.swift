@@ -68,7 +68,7 @@ struct CircularProgressView: View {
 
 // MARK: - Content View
 
-struct ContentView: View {
+struct MagnetReaderView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var magnetometer = MagnetometerService()
     @StateObject private var runtimeSession = RuntimeSessionManager()
@@ -226,7 +226,7 @@ struct ContentView: View {
 // MARK: - Previews
 
 #Preview("Content View") {
-    ContentView()
+    MagnetReaderView()
 }
 
 #Preview("Circular Progress") {
