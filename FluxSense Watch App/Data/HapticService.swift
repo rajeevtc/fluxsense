@@ -106,8 +106,11 @@ final class HapticService {
 
     private func playCoreHapticsBurst(polarity: Polarity, strength: Double) async {
         let clampedStrength = max(0.0, min(1.0, strength))
-        let intensity = Float(0.15 + (0.85 * clampedStrength))
-        let sharpness = Float(0.2 + (0.8 * clampedStrength))
+        
+        // Increased intensity: 40% minimum → 100% maximum (was 15% → 100%)
+        let intensity = Float(0.4 + (0.6 * clampedStrength))
+        // Increased sharpness: 50% minimum → 100% maximum (was 20% → 100%)
+        let sharpness = Float(0.5 + (0.5 * clampedStrength))
 
         guard let engine else {
             playFallback(polarity: polarity, strength: clampedStrength)
@@ -157,18 +160,19 @@ final class HapticService {
 #endif
 
     private func playFallback(polarity: Polarity, strength: Double) {
-        let clampedStrength = max(0.0, min(1.0, strength))
-        let type: WKHapticType = clampedStrength > 0.6 ? .notification : .click
-
         switch polarity {
         case .south:
-            device.play(type)
+            // South Pole: Gentle single tap (silent vibration)
+            device.play(.click)
+            
         case .north:
-            device.play(type)
+            // North Pole: Double tap (silent vibration, 100ms apart)
+            device.play(.click)
             Task {
                 try? await Task.sleep(nanoseconds: 100_000_000)
-                device.play(type)
+                device.play(.click)
             }
+            
         case .neutral:
             break
         }

@@ -7,7 +7,7 @@ struct CircularProgressView: View {
     let microtesla: Double
     let polarity: Polarity
     var minMicrotesla: Double = 0
-    var maxMicrotesla: Double = 100
+    var maxMicrotesla: Double = 4900
 
     private var progress: Double {
         MagneticReading.normalizedProgress(
@@ -242,8 +242,7 @@ struct ContentView: View {
         HStack(spacing: 12) {
             CircularProgressView(microtesla: 100, polarity: .north)
                 .frame(width: 120, height: 120)
-            // 150 µT clamps visually to full ring
-            CircularProgressView(microtesla: 150, polarity: .south)
+            CircularProgressView(microtesla: 4900, polarity: .south)
                 .frame(width: 120, height: 120)
         }
     }
