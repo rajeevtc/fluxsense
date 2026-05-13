@@ -69,6 +69,7 @@ struct CircularProgressView: View {
 // MARK: - Content View
 
 struct ContentView: View {
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var magnetometer = MagnetometerService()
     @StateObject private var runtimeSession = RuntimeSessionManager()
     @StateObject private var stealthManager = StealthManager()
@@ -85,6 +86,17 @@ struct ContentView: View {
 
             if stealthManager.isStealthModeEnabled {
                 stealthOverlay
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .font(.caption.weight(.bold))
+                }
             }
         }
         .onAppear {
