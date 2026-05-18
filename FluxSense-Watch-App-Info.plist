@@ -7,7 +7,6 @@
 	<key>WKBackgroundModes</key>
 	<array>
 		<string>self-care</string>
-		<string>workout-processing</string>
 	</array>
 </dict>
 </plist>

@@ -107,10 +107,9 @@ final class HapticService {
     private func playCoreHapticsBurst(polarity: Polarity, strength: Double) async {
         let clampedStrength = max(0.0, min(1.0, strength))
         
-        // Increased intensity: 40% minimum → 100% maximum (was 15% → 100%)
-        let intensity = Float(0.4 + (0.6 * clampedStrength))
-        // Increased sharpness: 50% minimum → 100% maximum (was 20% → 100%)
-        let sharpness = Float(0.5 + (0.5 * clampedStrength))
+        // Max out haptic output for both North and South pulses.
+        let intensity: Float = 1.0
+        let sharpness: Float = 1.0
 
         guard let engine else {
             playFallback(polarity: polarity, strength: clampedStrength)
@@ -141,7 +140,12 @@ final class HapticService {
                 CHHapticEvent(
                     eventType: .hapticTransient,
                     parameters: [intensityParam, sharpnessParam],
-                    relativeTime: 0.1
+                    relativeTime: 0.08
+                ),
+                CHHapticEvent(
+                    eventType: .hapticTransient,
+                    parameters: [intensityParam, sharpnessParam],
+                    relativeTime: 0.16
                 )
             ]
 
@@ -162,15 +166,17 @@ final class HapticService {
     private func playFallback(polarity: Polarity, strength: Double) {
         switch polarity {
         case .south:
-            // South Pole: Gentle single tap (silent vibration)
-            device.play(.click)
-            
+            // South Pole: Single downward directional haptic.
+            device.play(.directionDown)
+
         case .north:
-            // North Pole: Double tap (silent vibration, 100ms apart)
-            device.play(.click)
+            // North Pole: Triple upward directional haptic, 80ms apart.
+            device.play(.directionUp)
             Task {
-                try? await Task.sleep(nanoseconds: 100_000_000)
-                device.play(.click)
+                try? await Task.sleep(nanoseconds: 80_000_000)
+                device.play(.directionUp)
+                try? await Task.sleep(nanoseconds: 80_000_000)
+                device.play(.directionUp)
             }
             
         case .neutral:
