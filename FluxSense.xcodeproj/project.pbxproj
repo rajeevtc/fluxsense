@@ -523,7 +523,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P7CW9V4LF9;
 				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
 				MARKETING_VERSION = 1.0;
@@ -542,7 +542,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P7CW9V4LF9;
 				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
 				MARKETING_VERSION = 1.0;
