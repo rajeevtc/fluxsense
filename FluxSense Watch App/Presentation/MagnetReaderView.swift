@@ -215,7 +215,7 @@ struct MagnetReaderView: View {
         guard !stealthManager.isStealthModeEnabled else { return }
 
         let reading = magnetometer.currentReading
-        if reading.polarity == .neutral || reading.strength < 0.08 {
+        if reading.polarity == .neutral || reading.rawMagnitude < 1470 {
             haptics.stop()
             return
         }

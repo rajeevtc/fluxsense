@@ -32,7 +32,7 @@ final class HapticService {
     func play(for reading: MagneticReading) {
         stop()
 
-        guard reading.strength > 0.05, reading.polarity != .neutral else { return }
+        guard reading.rawMagnitude > 1470, reading.polarity != .neutral else { return }
 
         let polarity = reading.polarity
         let strength = reading.strength
