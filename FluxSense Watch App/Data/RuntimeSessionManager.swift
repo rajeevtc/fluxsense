@@ -1,75 +1,85 @@
 import Combine
 import Foundation
+import HealthKit
 import WatchKit
 
+/// Keeps the app alive and the screen active for as long as the caller needs.
+///
+/// Strategy:
+///   1. HKWorkoutSession — shows the green workout dot and prevents auto-lock while wrist is raised.
+///   2. WKExtendedRuntimeSession — keeps the app running when the screen turns off so readings
+///      never stop; magnetometer data is live the moment the user raises their wrist again.
+///
+/// Both sessions run until `invalidateSession()` is called explicitly.
 @MainActor
 final class RuntimeSessionManager: NSObject, ObservableObject {
-    enum SessionKind: String, CaseIterable {
-        case physicalSmartCard
-        case selfContainedTest
-    }
-
     @Published private(set) var isRunning = false
-    @Published private(set) var remainingSeconds: Int = 0
-    @Published var sessionKind: SessionKind = .selfContainedTest
 
-    var onSessionEnded: (() -> Void)?
-
-    private var session: WKExtendedRuntimeSession?
-    private var expirationTask: Task<Void, Never>?
-
-    private let maxDurationSeconds = 20 * 60
+    private var extendedSession: WKExtendedRuntimeSession?
+    private var workoutSession: HKWorkoutSession?
+    private let healthStore = HKHealthStore()
 
     func startSessionIfNeeded() {
         guard !isRunning else { return }
-
-        let session = WKExtendedRuntimeSession()
-        session.delegate = self
-        self.session = session
-        session.start()
-
         isRunning = true
-        remainingSeconds = maxDurationSeconds
-        scheduleExpirationCountdown()
+        startExtendedRuntimeSession()
+        requestAuthAndStartWorkout()
     }
 
     func invalidateSession() {
-        expirationTask?.cancel()
-        expirationTask = nil
+        guard isRunning else { return }
+        isRunning = false
+        extendedSession?.invalidate()
+        extendedSession = nil
+        workoutSession?.end()
+        workoutSession = nil
+    }
 
-        session?.invalidate()
-        session = nil
+    // MARK: - Private
 
-        if isRunning {
-            isRunning = false
-            remainingSeconds = 0
-            onSessionEnded?()
+    private func startExtendedRuntimeSession() {
+        let session = WKExtendedRuntimeSession()
+        session.delegate = self
+        extendedSession = session
+        session.start()
+    }
+
+    private func requestAuthAndStartWorkout() {
+        guard HKHealthStore.isHealthDataAvailable() else { return }
+        let share: Set<HKSampleType> = [HKWorkoutType.workoutType()]
+        healthStore.requestAuthorization(toShare: share, read: []) { [weak self] granted, _ in
+            guard granted else { return }
+            Task { @MainActor [weak self] in
+                self?.startWorkoutSession()
+            }
         }
     }
 
-    private func scheduleExpirationCountdown() {
-        expirationTask?.cancel()
-
-        expirationTask = Task {
-            for second in stride(from: maxDurationSeconds, through: 1, by: -1) {
-                guard !Task.isCancelled else { return }
-                remainingSeconds = second
-                try? await Task.sleep(nanoseconds: 1_000_000_000)
-            }
-
-            guard !Task.isCancelled else { return }
-            invalidateSession()
+    private func startWorkoutSession() {
+        let config = HKWorkoutConfiguration()
+        config.activityType = .other
+        config.locationType = .unknown
+        do {
+            let session = try HKWorkoutSession(healthStore: healthStore, configuration: config)
+            session.delegate = self
+            workoutSession = session
+            session.startActivity(with: Date())
+        } catch {
+            // No HealthKit capability — WKExtendedRuntimeSession handles background execution.
         }
     }
 }
 
+// MARK: - WKExtendedRuntimeSessionDelegate
+
 extension RuntimeSessionManager: WKExtendedRuntimeSessionDelegate {
-    nonisolated func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
-    }
+    nonisolated func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {}
 
     nonisolated func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
-        Task { @MainActor in
-            invalidateSession()
+        Task { @MainActor [weak self] in
+            guard let self, isRunning else { return }
+            extendedSession = nil
+            startExtendedRuntimeSession()
         }
     }
 
@@ -78,16 +88,23 @@ extension RuntimeSessionManager: WKExtendedRuntimeSessionDelegate {
         didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason,
         error: Error?
     ) {
-        Task { @MainActor in
-            expirationTask?.cancel()
-            expirationTask = nil
-            session = nil
-
-            if isRunning {
-                isRunning = false
-                remainingSeconds = 0
-                onSessionEnded?()
-            }
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            extendedSession = nil
+            if isRunning { startExtendedRuntimeSession() }
         }
     }
+}
+
+// MARK: - HKWorkoutSessionDelegate
+
+extension RuntimeSessionManager: HKWorkoutSessionDelegate {
+    nonisolated func workoutSession(
+        _ workoutSession: HKWorkoutSession,
+        didChangeTo toState: HKWorkoutSessionState,
+        from fromState: HKWorkoutSessionState,
+        date: Date
+    ) {}
+
+    nonisolated func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {}
 }

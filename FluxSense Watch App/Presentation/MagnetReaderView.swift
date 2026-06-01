@@ -101,12 +101,8 @@ struct MagnetReaderView: View {
         }
         .onAppear {
             gain = magnetometer.gain
-            runtimeSession.onSessionEnded = {
-                stealthManager.exitStealthMode()
-                updateHaptics()
-            }
-
             magnetometer.start()
+            runtimeSession.startSessionIfNeeded()
         }
         .onDisappear {
             runtimeSession.invalidateSession()
@@ -117,6 +113,9 @@ struct MagnetReaderView: View {
             updateHaptics()
         }
         .onChange(of: magnetometer.currentReading.polarity) { _ in
+            updateHaptics()
+        }
+        .onChange(of: magnetometer.currentReading.rawMagnitude > 1470) { _ in
             updateHaptics()
         }
         .onChange(of: gain) { value in
@@ -191,11 +190,9 @@ struct MagnetReaderView: View {
             set: { isEnabled in
                 if isEnabled {
                     stealthManager.enterStealthMode()
-                    runtimeSession.startSessionIfNeeded()
                     WKInterfaceDevice.current().play(.success)
                 } else {
                     stealthManager.exitStealthMode()
-                    runtimeSession.invalidateSession()
                     updateHaptics()
                 }
             }
@@ -203,12 +200,7 @@ struct MagnetReaderView: View {
     }
 
     private var runtimeLabel: String {
-        guard stealthManager.isStealthModeEnabled, runtimeSession.isRunning else {
-            return "Stealth: Off"
-        }
-        let minutes = runtimeSession.remainingSeconds / 60
-        let seconds = runtimeSession.remainingSeconds % 60
-        return String(format: "Stealth: %02d:%02d", minutes, seconds)
+        stealthManager.isStealthModeEnabled ? "Stealth: On" : "Stealth: Off"
     }
 
     private func updateHaptics() {

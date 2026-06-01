@@ -452,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FluxSense Watch App/FluxSense Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P7CW9V4LF9;
@@ -459,6 +460,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FluxSense-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "FluxSense uses the health related contents";
 				INFOPLIST_KEY_NSMotionUsageDescription = "FluxSense uses the magnetometer to detect the proximity and polarity of magnetic fields.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -467,7 +469,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.FrugalProf.FluxSense.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FrugalProf.FluxSense.watchkitapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -487,6 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FluxSense Watch App/FluxSense Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P7CW9V4LF9;
@@ -494,6 +497,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FluxSense-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "FluxSense uses the health related contents";
 				INFOPLIST_KEY_NSMotionUsageDescription = "FluxSense uses the magnetometer to detect the proximity and polarity of magnetic fields.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -502,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.FrugalProf.FluxSense.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FrugalProf.FluxSense.watchkitapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -527,7 +531,7 @@
 				DEVELOPMENT_TEAM = P7CW9V4LF9;
 				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.FrugalProf.FluxSenseapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FrugalProf.FluxSenseapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -546,7 +550,7 @@
 				DEVELOPMENT_TEAM = P7CW9V4LF9;
 				INFOPLIST_KEY_CFBundleDisplayName = FluxSense;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.FrugalProf.FluxSenseapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FrugalProf.FluxSenseapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
